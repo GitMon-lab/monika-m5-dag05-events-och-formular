@@ -44,4 +44,11 @@ export function kopplaLaggTill(
     vidLaggTill: (id: number) => void
 ): void {
     // TODO
+    container.addEventListener('click', (handelse) => {
+        const target = handelse.target as HTMLElement
+        const knapp = target.closest<HTMLElement>('button.lagg-i-order')
+
+        if (!knapp || knapp.dataset.id) return
+        vidLaggTill(Number(knapp.dataset.id))
+    })
 }

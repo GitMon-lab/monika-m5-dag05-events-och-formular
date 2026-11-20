@@ -87,15 +87,19 @@ Skriv `laggTillIOrder`, `rensaOrder` och `antalIOrder` i `src/order.ts` (nya arr
 
 ### Steg 7. Valideringsfunktionerna
 
-I `src/validering.ts`: skriv `valideraNamn`, `valideraEpost`, `valideraTelefon`, `valideraDatum`, `valideraAntal` och `valideraFormular`. De är rena funktioner som returnerar ett meddelande eller en tom text. Meddelandena står i testerna, och du ska följa dem ordagrant.
+I `src/validering.ts`: skriv `valideraNamn`, `valideraEpost`, `valideraTelefon`, `valideraDatum`, `valideraAntal`
+och `valideraFormular`. De är rena funktioner som returnerar ett meddelande eller en tom text. Meddelandena står i testerna, och du ska följa dem ordagrant.
 
 ### Steg 8. Koppla formuläret i kontakt.js
 
-Skriv `visaFel` (skapar `p.falt-fel`, sätter `aria-invalid` och `aria-describedby`), validera vid `blur`, validera om vid `input` när fältet redan är markerat som fel, och hantera `submit`: `preventDefault`, flytta fokus till första felet, annars visa en bekräftelse i `#bekraftelse` (som är en `aria-live`-ruta).
+Skriv `visaFel` (skapar `p.falt-fel`, sätter `aria-invalid` och `aria-describedby`),
+validera vid `blur`, validera om vid `input` när fältet redan är markerat som fel,
+och hantera `submit`: `preventDefault`, flytta fokus till första felet, annars visa en bekräftelse i `#bekraftelse` (som är en `aria-live`-ruta).
 
 ### Steg 9. Testa som en användare
 
-Öppna `kontakt.html`. Testa: skicka tomt, fyll i felaktig e-post, rätta, skicka giltigt. Testa sedan _enbart med tangentbordet_, och slå på en skärmläsare (NVDA på Windows) i två minuter och lyssna på ett felmeddelande. Skriv i en kommentar vad du hörde.
+Öppna `kontakt.html`. Testa: skicka tomt, fyll i felaktig e-post, rätta, skicka giltigt.
+Testa sedan _enbart med tangentbordet_, och slå på en skärmläsare (NVDA på Windows) i två minuter och lyssna på ett felmeddelande. Skriv i en kommentar vad du hörde.
 
 ## Kontrollista: så vet du att du är klar
 
