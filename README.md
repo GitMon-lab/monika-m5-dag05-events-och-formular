@@ -48,23 +48,34 @@ Fastnar du: skriv ner exakt var och vad du försökt (och vilket felmeddelande d
 
 ### Steg 1. Din första händelse
 
-Öppna `src/main.ts`, del 1. Lägg en lyssnare på knappen i hero som skriver ut `handelse.type` och `handelse.target` i Console. Klicka, och titta. Prova sedan `handelse.preventDefault()` och se vad som händer med länken. Ta bort den igen.
+Öppna `src/main.ts`, del 1. Lägg en lyssnare på knappen i hero som skriver ut `handelse.type` och `handelse.target`
+i Console. Klicka, och titta. Prova sedan `handelse.preventDefault()` och se vad som händer med länken. Ta bort den igen.
+
+Utan ser jag inte console logg med preventDefault ser jag texten. LÄnken gör att den vi gå vidare
 
 ### Steg 2. filtreraMeny
 
-Skriv den rena funktionen `filtreraMeny(meny, filter)` i `src/filter.ts`. Filtret är `"alla"`, `"vegetarisk"` eller en kategori. Kör `tests.html`: fyra tester ska bli gröna.
+Skriv den rena funktionen `filtreraMeny(meny, filter)` i `src/filter.ts`. Filtret är `"alla"`, `"vegetarisk"`
+eller en kategori. Kör `tests.html`: fyra tester ska bli gröna.
 
 ### Steg 3. Event delegation: kopplaFilter
 
-I `src/events.ts`: skriv `kopplaFilter`. En enda lyssnare på gruppen (inte en per knapp) som använder `handelse.target.closest(...)`. Den ska flytta `aria-pressed` och anropa en callback. Läs testerna: ett av dem klickar på en `span` _inuti_ en knapp. Varför ska det fungera?
+I `src/events.ts`: skriv `kopplaFilter`. En enda lyssnare på gruppen (inte en per knapp) som använder
+`handelse.target.closest(...)`. Den ska flytta `aria-pressed` och anropa en callback.
+Läs testerna: ett av dem klickar på en `span` _inuti_ en knapp. Varför ska det fungera?
+För att target.closest är med, target.closest<HTMLButtonElement>('button[data-filter]') Letar upåt i DOM trädet efter element
 
 ### Steg 4. Koppla ihop menyn
 
-I `src/main.ts`, del 2: skriv `uppdateraMeny(filter)` som filtrerar, visar kort, uppdaterar rubriken och markerar dagens rätt (billigaste lunchen, om det finns någon). Anropa den en gång direkt och koppla den till filterknapparna. Testa alla fem filter på sidan, och tryck på knapparna med _tangentbordet_ (Tab och Enter).
+I `src/main.ts`, del 2: skriv `uppdateraMeny(filter)` som filtrerar, visar kort, uppdaterar rubriken o
+ch markerar dagens rätt (billigaste lunchen, om det finns någon). Anropa den en gång direkt och koppla
+den till filterknapparna. Testa alla fem filter på sidan, och tryck på knapparna med _tangentbordet_ (Tab och Enter).
 
 ### Steg 5. Lägg-i-beställning-knappen
 
-I `src/ui.ts`: lägg en `button` sist i varje kort i `skapaRattKort` (klass `lagg-i-order`, `data-id`, och ett `aria-label` som nämner rätten så att skärmläsare kan skilja knapparna åt). Skriv `kopplaLaggTill` i `src/events.ts`.
+I `src/ui.ts`: lägg en `button` sist i varje kort i `skapaRattKort` (klass `lagg-i-order`, `data-id`,
+och ett `aria-label` som nämner rätten så att skärmläsare kan skilja knapparna åt).
+Skriv `kopplaLaggTill` i `src/events.ts`.
 
 ### Steg 6. Fördjupning: beställningen
 
