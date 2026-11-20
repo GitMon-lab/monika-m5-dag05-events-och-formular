@@ -1,6 +1,6 @@
 # Dag 5 · Events och formulär
 
-*Modul 5, UI/UX & Frontendutveckling (TypeScript), Lexicon IT-Proffs*
+_Modul 5, UI/UX & Frontendutveckling (TypeScript), Lexicon IT-Proffs_
 
 ## Vad du ska göra idag
 
@@ -8,7 +8,7 @@ Du får kaféets sida att **reagera på användaren**: en klickbar filtrering av
 
 ## Bakgrund
 
-Hittills har dina program körts en gång när sidan laddas. Nu får de **lyssna**. En *händelse* (event) är något som sker: ett klick, en tangent, ett formulär som skickas. Du säger "när det här händer, kör den här funktionen". Det är sidans interaktivitet i ett nötskal. Idag lär du dig också att validera formulär så att användaren får hjälp på rätt sätt, vilket är något du har tränat på att tänka på sedan modul 2 och 3.
+Hittills har dina program körts en gång när sidan laddas. Nu får de **lyssna**. En _händelse_ (event) är något som sker: ett klick, en tangent, ett formulär som skickas. Du säger "när det här händer, kör den här funktionen". Det är sidans interaktivitet i ett nötskal. Idag lär du dig också att validera formulär så att användaren får hjälp på rätt sätt, vilket är något du har tränat på att tänka på sedan modul 2 och 3.
 
 ## TypeScript idag: händelser, unioner och typade formulär
 
@@ -16,9 +16,9 @@ Hittills har dina program körts en gång när sidan laddas. Nu får de **lyssna
 
 ```ts
 if (!(handelse.target instanceof HTMLElement)) {
-  return;
+    return
 }
-const knapp = handelse.target.closest<HTMLButtonElement>("button[data-filter]");
+const knapp = handelse.target.closest<HTMLButtonElement>('button[data-filter]')
 ```
 
 - **Union av texter:** `type Filter = "alla" | "vegetarisk" | Kategori`. Skriver du `filtreraMeny(meny, "pizza")` säger TypeScript ifrån direkt. I JavaScript får du bara en tom lista.
@@ -28,16 +28,19 @@ const knapp = handelse.target.closest<HTMLButtonElement>("button[data-filter]");
 
 ## Så arbetar du (samma som alltid)
 
-1. **Forka** dagens repo på GitHub (*Fork → Create fork*).
-2. **Klona din fork:** *Code → HTTPS → kopiera adressen*. I terminalen (Ctrl+ö i VS Code): `git clone <adressen>`. Öppna den nya mappen i VS Code.
+1. **Forka** dagens repo på GitHub (_Fork → Create fork_).
+2. **Klona din fork:** _Code → HTTPS → kopiera adressen_. I terminalen (Ctrl+ö i VS Code): `git clone <adressen>`. Öppna den nya mappen i VS Code.
 3. **Installera verktygen, en gång per repo:** `npm install` i terminalen.
-4. **Starta servern:** `npm run dev`. Öppna adressen den skriver ut (oftast `http://localhost:5173/`). Tryck F12 och välj fliken *Console*. Stoppa med Ctrl+C. Testsidan öppnar du på samma server: `http://localhost:5173/tests.html` (lägg till `/tests.html` efter adressen).
+4. **Starta servern:** `npm run dev`. Öppna adressen den skriver ut (oftast `http://localhost:5173/`). Tryck F12 och välj fliken _Console_. Stoppa med Ctrl+C. Testsidan öppnar du på samma server: `http://localhost:5173/tests.html` (lägg till `/tests.html` efter adressen).
+
 5. **Gör uppgiften.** Spara och kontrollera i webbläsaren och Console efter varje steg. Gör en commit efter varje avslutat steg: `git add .` och `git commit -m "Beskriv vad du gjorde"`.
+
 6. **Kontrollera typerna:** `npm run typecheck`. Tyst betyder att alla typer stämmer. Röda understrykningar i VS Code är TypeScript som varnar.
+
 7. **Skicka upp** när du är klar: `git push`.
 8. **Lämna in i Microsoft Forms.**
 
-Fastnar du: skriv ner exakt var och vad du försökt (och vilket felmeddelande du fick), och ta det först i nästa handledda pass. Problem med `npm` eller Node? Läs *Elevguide: Node, Vite och TypeScript*.
+Fastnar du: skriv ner exakt var och vad du försökt (och vilket felmeddelande du fick), och ta det först i nästa handledda pass. Problem med `npm` eller Node? Läs _Elevguide: Node, Vite och TypeScript_.
 
 > Vite tar bara bort typerna och kör koden. Den kontrollerar dem inte. Sidan kan alltså köras trots röda understrykningar.
 
@@ -53,11 +56,11 @@ Skriv den rena funktionen `filtreraMeny(meny, filter)` i `src/filter.ts`. Filtre
 
 ### Steg 3. Event delegation: kopplaFilter
 
-I `src/events.ts`: skriv `kopplaFilter`. En enda lyssnare på gruppen (inte en per knapp) som använder `handelse.target.closest(...)`. Den ska flytta `aria-pressed` och anropa en callback. Läs testerna: ett av dem klickar på en `span` *inuti* en knapp. Varför ska det fungera?
+I `src/events.ts`: skriv `kopplaFilter`. En enda lyssnare på gruppen (inte en per knapp) som använder `handelse.target.closest(...)`. Den ska flytta `aria-pressed` och anropa en callback. Läs testerna: ett av dem klickar på en `span` _inuti_ en knapp. Varför ska det fungera?
 
 ### Steg 4. Koppla ihop menyn
 
-I `src/main.ts`, del 2: skriv `uppdateraMeny(filter)` som filtrerar, visar kort, uppdaterar rubriken och markerar dagens rätt (billigaste lunchen, om det finns någon). Anropa den en gång direkt och koppla den till filterknapparna. Testa alla fem filter på sidan, och tryck på knapparna med *tangentbordet* (Tab och Enter).
+I `src/main.ts`, del 2: skriv `uppdateraMeny(filter)` som filtrerar, visar kort, uppdaterar rubriken och markerar dagens rätt (billigaste lunchen, om det finns någon). Anropa den en gång direkt och koppla den till filterknapparna. Testa alla fem filter på sidan, och tryck på knapparna med _tangentbordet_ (Tab och Enter).
 
 ### Steg 5. Lägg-i-beställning-knappen
 
@@ -77,7 +80,7 @@ Skriv `visaFel` (skapar `p.falt-fel`, sätter `aria-invalid` och `aria-described
 
 ### Steg 9. Testa som en användare
 
-Öppna `kontakt.html`. Testa: skicka tomt, fyll i felaktig e-post, rätta, skicka giltigt. Testa sedan *enbart med tangentbordet*, och slå på en skärmläsare (NVDA på Windows) i två minuter och lyssna på ett felmeddelande. Skriv i en kommentar vad du hörde.
+Öppna `kontakt.html`. Testa: skicka tomt, fyll i felaktig e-post, rätta, skicka giltigt. Testa sedan _enbart med tangentbordet_, och slå på en skärmläsare (NVDA på Windows) i två minuter och lyssna på ett felmeddelande. Skriv i en kommentar vad du hörde.
 
 ## Kontrollista: så vet du att du är klar
 
