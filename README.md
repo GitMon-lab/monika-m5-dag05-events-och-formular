@@ -57,6 +57,7 @@ Utan ser jag inte console logg med preventDefault ser jag texten. LÄnken gör a
 
 Skriv den rena funktionen `filtreraMeny(meny, filter)` i `src/filter.ts`. Filtret är `"alla"`, `"vegetarisk"`
 eller en kategori. Kör `tests.html`: fyra tester ska bli gröna.
+KLar
 
 ### Steg 3. Event delegation: kopplaFilter
 
@@ -64,12 +65,15 @@ I `src/events.ts`: skriv `kopplaFilter`. En enda lyssnare på gruppen (inte en p
 `handelse.target.closest(...)`. Den ska flytta `aria-pressed` och anropa en callback.
 Läs testerna: ett av dem klickar på en `span` _inuti_ en knapp. Varför ska det fungera?
 För att target.closest är med, target.closest<HTMLButtonElement>('button[data-filter]') Letar upåt i DOM trädet efter element
+Klar
 
 ### Steg 4. Koppla ihop menyn
 
 I `src/main.ts`, del 2: skriv `uppdateraMeny(filter)` som filtrerar, visar kort, uppdaterar rubriken o
 ch markerar dagens rätt (billigaste lunchen, om det finns någon). Anropa den en gång direkt och koppla
 den till filterknapparna. Testa alla fem filter på sidan, och tryck på knapparna med _tangentbordet_ (Tab och Enter).
+
+//Tabb funkar framåt men inte bakåt
 
 ### Steg 5. Lägg-i-beställning-knappen
 
