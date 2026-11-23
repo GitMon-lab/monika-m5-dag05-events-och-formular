@@ -18,14 +18,14 @@ export function valideraNamn(text: string): string {
 // E-post: obligatorisk, måste innehålla @, och ha formen text@text.text.
 export function valideraEpost(text: string): string {
     // TODO
-    // const epostadress = text.trim()
-    // if (epostadress === '') {
-    //     return 'Fyll i din e-post adress'
-    // }
+    const epostadress = text.trim()
+    if (epostadress === '') {
+        return 'Fyll i din e-postadress.'
+    }
 
-    // if (!epostadress.includes('@')) {
-    //     return 'Epost måste innehålla @'
-    // }
+    if (!epostadress.includes('@')) {
+        return 'E-postadressen måste innehålla @.'
+    }
 
     // //Är formatet ok?
     // const textFormat = epostadress.split('@')
@@ -34,7 +34,7 @@ export function valideraEpost(text: string): string {
     //     textFormat[0] === '' ||
     //     !textFormat[1].includes('.')
     // ) {
-    //     return 'Epost måste ha formen namn@text.text'
+    //     return 'Epost måste ha formen namn@text.text'e-postadress
     // }
 
     // //Finns text före och efter punkten?
@@ -47,10 +47,10 @@ export function valideraEpost(text: string): string {
     if (eAdress === '') {
         return 'Fyll i din e-postadress.'
     }
-
     const epostMonster = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (!epostMonster.test(eAdress)) {
         return 'Ange en giltig e-postadress, till exempel namn@exempel.se.'
+        //return 'E-postadressen måste innehålla @.'
     }
     return ''
 }
