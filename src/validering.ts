@@ -68,6 +68,12 @@ export function valideraTelefon(text: string): string {
     if (!phoneMonster.test(phone)) {
         return 'Telefonnumret får bara innehålla siffror, mellanslag, plus och bindestreck.'
     }
+
+    const checkNumber = phone.replace(/\D/g, '')
+    if (checkNumber.length < 7) {
+        return 'Telefonnumret är för kort.'
+    }
+
     return ''
 }
 
