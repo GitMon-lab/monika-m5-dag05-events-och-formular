@@ -88,6 +88,12 @@ export function valideraDatum(text: string, idag: string): string {
 // Antal personer: obligatoriskt (en tom text betyder att inget valts).
 export function valideraAntal(text: string): string {
     // TODO
+    const antalPersoner = text.trim()
+
+    if (antalPersoner === '') {
+        return 'Amge antal personer'
+    }
+    return ''
 }
 
 // Dagens datum som "2026-10-19" (färdig, du behöver inte ändra den).
