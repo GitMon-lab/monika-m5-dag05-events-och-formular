@@ -16,18 +16,12 @@ const filterGrupp = hamta('#filter')
 // DEL 1: din första händelse -------------------------------------------
 // 1. Hämta knappen .knapp i #hero. Lägg till en lyssnare för "click" som skriver ut
 //    handelse.type och handelse.target i Console.
-
 // 2. Lägg till handelse.preventDefault() i lyssnaren. Vad händer med länken?
 //    Ta bort preventDefault igen när du provat.
-
 //Visar inte min text i console, utan prevent följer läsaren href=#meny scroller direkt till id meny
 //när läsaren scollar/navigerar rensas konsollen innan man ser den. Prevent låter ditt JavaScript köra klart
-
 /* Man kan sätta fördröjning då visas den  Handlar om att det är en länk och inte en button a taggar följer länken
-setTimeout(() => {
-        console.log("Nu scrollar vi")
-        location.hash = "meny"
-    }, 500)
+setTimeout(() => { console.log("Nu scrollar vi")location.hash = "meny"}, 500)
 */
 /*  <section id="hero">
       <h2 id="hero-rubrik">Nybakat varje morgon</h2>
@@ -66,7 +60,6 @@ function uppdateraMeny(filter: Filter): void {
         markeraDagensRatt(lista, dagens.id)
     }
 }
-
 uppdateraMeny('alla')
 kopplaFilter(filterGrupp, uppdateraMeny)
 
@@ -74,8 +67,8 @@ kopplaFilter(filterGrupp, uppdateraMeny)
 // 5. let order: OrderRad[] = []; Koppla kopplaLaggTill(lista, ...) så att klick lägger till i order och visar den
 //    med visaOrder. Koppla knappen #rensa-order till rensaOrder.
 // TODO
-let orderRef = []{
-    lista: hamta('#order-lista'),
-    summa: hamta('#order-summa'),
-    tom: hamta('#order-tom')
-}
+// let orderRef = []{
+//     lista: hamta('#order-lista'),
+//     summa: hamta('#order-summa'),
+//     tom: hamta('#order-tom')
+// }
