@@ -40,7 +40,7 @@ const regler: Record<string, (text: string) => string> = {
 //    - p.textContent = meddelande
 //    - Är meddelandet tomt: ta bort aria-invalid och aria-describedby från fältet.
 //      Annars: falt.setAttribute("aria-invalid", "true") och aria-describedby = p:ts id.
-//Skapar felparagrafen <p class="falt-fel id="NAMN.fel>"
+//Skapar felparagrafen <p class="falt-fel id="NAMN.fel>  sätter aria-invalid"
 function visaFel(falt: Falt, meddelande: string): void {
     // TODO
     const felId = `${falt.name}-fel`
@@ -64,6 +64,20 @@ function visaFel(falt: Falt, meddelande: string): void {
 // 2. Koppla varje fält i regler: validera när användaren LÄMNAR fältet ("blur"),
 //    och validera på nytt vid "input" men bara om fältet redan är markerat som fel (aria-invalid="true").
 // TODO
+
+for (const [namn, regel] of Object.entries(regler)) {
+    const falt = hittaFalt(namn)
+
+    falt.addEventListener('blur', () => {
+        visaFel(falt, regel(falt.value))
+    })
+
+    falt.addEventListener('input', () => {
+        if (falt.getAttribute('aria-invalid') === 'true') {
+            visaFel(falt, regel(falt.value))
+        }
+    })
+}
 
 // 3. Vid "submit": preventDefault(). Validera hela formuläret med valideraFormular.
 //    - Finns fel: visa dem alla med visaFel, flytta fokus till första felaktiga fältet.
