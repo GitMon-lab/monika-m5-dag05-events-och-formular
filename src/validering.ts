@@ -6,11 +6,11 @@ export function valideraNamn(text: string): string {
     // TODO
     const rensad = text.trim()
     if (rensad === '') {
-        return 'Fyll i ditt Namn'
+        return 'Fyll i ditt namn.'
     }
 
     if (rensad.length < 2) {
-        return 'Namnet måste vara minst 2 tecken'
+        return 'Namnet måste vara minst 2 tecken.'
     }
     return ''
 }
@@ -45,12 +45,12 @@ export function valideraEpost(text: string): string {
 
     const eAdress = text.trim()
     if (eAdress === '') {
-        return 'Fyll i epost adress'
+        return 'Fyll i din e-postadress.'
     }
 
     const epostMonster = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (!epostMonster.test(eAdress)) {
-        return 'Epost måste ha formen namn@text.text'
+        return 'Ange en giltig e-postadress, till exempel namn@exempel.se.'
     }
     return ''
 }
@@ -60,12 +60,13 @@ export function valideraTelefon(text: string): string {
     // TODO
     const phone = text.trim()
     if (phone === '') {
-        return 'Fyll i telefon nummer'
+        //   return 'Fyll i telefon nummer.'
+        return ''
     }
 
     const phoneMonster = /^[0-9\s+-]+$/
     if (!phoneMonster.test(phone)) {
-        return 'Ogiltigt telefonnummer'
+        return 'Telefonnumret får bara innehålla siffror, mellanslag, plus och bindestreck.'
     }
     return ''
 }
@@ -76,11 +77,11 @@ export function valideraDatum(text: string, idag: string): string {
     const datum = text.trim()
 
     if (datum === '') {
-        return 'Välj ett datum'
+        return 'Välj ett datum.'
     }
 
     if (datum < idag) {
-        return 'Datumet kan inte vara i det förflutna'
+        return 'Datumet kan inte vara i det förflutna.'
     }
     return ''
 }
@@ -91,7 +92,7 @@ export function valideraAntal(text: string): string {
     const antalPersoner = text.trim()
 
     if (antalPersoner === '') {
-        return 'Amge antal personer'
+        return 'Välj antal personer.'
     }
     return ''
 }
