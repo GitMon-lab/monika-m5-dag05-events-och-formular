@@ -14,6 +14,7 @@ export function valideraNamn(text: string): string {
     }
     return ''
 }
+
 // E-post: obligatorisk, måste innehålla @, och ha formen text@text.text.
 export function valideraEpost(text: string): string {
     // TODO

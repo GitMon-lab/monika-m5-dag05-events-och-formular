@@ -19,9 +19,11 @@ const filterGrupp = hamta('#filter')
 
 // 2. Lägg till handelse.preventDefault() i lyssnaren. Vad händer med länken?
 //    Ta bort preventDefault igen när du provat.
+
 //Visar inte min text i console, utan prevent följer läsaren href=#meny scroller direkt till id meny
 //när läsaren scollar/navigerar rensas konsollen innan man ser den. Prevent låter ditt JavaScript köra klart
-/* Man an sätta fördröjning då visas den  Handlar om att det är en länk och inte en button a taggar följer länken
+
+/* Man kan sätta fördröjning då visas den  Handlar om att det är en länk och inte en button a taggar följer länken
 setTimeout(() => {
         console.log("Nu scrollar vi")
         location.hash = "meny"
@@ -36,11 +38,8 @@ setTimeout(() => {
 //Lägg en lyssnare på knappen i hero som skriver ut `handelse.type` och `handelse.target` i Console.
 //Klicka, och titta. Prova sedan `handelse.preventDefault()` och se vad som händer med länken. Ta bort den igen
 // TODO
+
 const heroKnapp = document.querySelector('#hero .knapp')
-//heroKnapp?.addEventListener('click', (handelse) => {
-//    handelse.preventDefault()
-//    console.log(handelse.type, handelse.target)
-//}
 
 heroKnapp?.addEventListener('click', (handelse) => {
     handelse.preventDefault()
@@ -52,6 +51,7 @@ heroKnapp?.addEventListener('click', (handelse) => {
 // hämta rätter med filtreraMeny,
 //  visa dem med visaMeny, uppdatera rubriken och markera den billigaste lunchen som dagens rätt
 //  (om det finns någon lunch).
+
 // 4. Anropa uppdateraMeny("alla") direkt, och koppla filterknapparna med kopplaFilter.
 // TODO
 
@@ -66,15 +66,16 @@ function uppdateraMeny(filter: Filter): void {
         markeraDagensRatt(lista, dagens.id)
     }
 }
+
 uppdateraMeny('alla')
 kopplaFilter(filterGrupp, uppdateraMeny)
 
 // DEL 3 (fördjupning): beställningen ---------------------------------------
 // 5. let order: OrderRad[] = []; Koppla kopplaLaggTill(lista, ...) så att klick lägger till i order och visar den
 //    med visaOrder. Koppla knappen #rensa-order till rensaOrder.
-const orderRef = {
+// TODO
+let orderRef = []{
     lista: hamta('#order-lista'),
     summa: hamta('#order-summa'),
     tom: hamta('#order-tom')
 }
-// TODO
