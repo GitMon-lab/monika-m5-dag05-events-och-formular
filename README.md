@@ -83,7 +83,9 @@ Skriv `kopplaLaggTill` i `src/events.ts`.
 
 ### Steg 6. Fördjupning: beställningen
 
-Skriv `laggTillIOrder`, `rensaOrder` och `antalIOrder` i `src/order.ts` (nya arrayer, ändra aldrig originalet) och `visaOrder` i `src/ui.ts`. Koppla ihop dem i `src/main.ts`, del 3. Det här steget är fördjupning, så hoppa över det om tiden tar slut. Gör då steg 7 och 8 först.
+Skriv `laggTillIOrder`, `rensaOrder` och `antalIOrder` i `src/order.ts` (nya arrayer, ändra aldrig originalet)
+och `visaOrder` i `src/ui.ts`.
+Koppla ihop dem i `src/main.ts`, del 3. Det här steget är fördjupning, så hoppa över det om tiden tar slut. Gör då steg 7 och 8 först.
 
 ### Steg 7. Valideringsfunktionerna
 
@@ -103,13 +105,13 @@ Testa sedan _enbart med tangentbordet_, och slå på en skärmläsare (NVDA på 
 
 ## Kontrollista: så vet du att du är klar
 
-- [ ] Alla tester på `tests.html` är gröna, utom eventuellt fördjupningen (order).
-- [ ] Alla fem filterknappar fungerar, och `aria-pressed` följer den valda knappen.
-- [ ] Du använder event delegation, med en lyssnare på parent.
-- [ ] `kontakt.html` visar felmeddelanden vid blur och submit, och fokus flyttas till första felet.
-- [ ] Felmeddelanden är text (inte bara färg) och kopplade med `aria-describedby`.
-- [ ] Du har testat både filter och formulär med bara tangentbordet.
-- [ ] Du har gjort minst sex commits.
+- [ x] Alla tester på `tests.html` är gröna, utom eventuellt fördjupningen (order).
+- [x ] Alla fem filterknappar fungerar, och `aria-pressed` följer den valda knappen. blå ram
+- [ x] Du använder event delegation, med en lyssnare på parent.
+- [x ] `kontakt.html` visar felmeddelanden vid blur och submit, och fokus flyttas till första felet.
+- [ x] Felmeddelanden är text (inte bara färg) och kopplade med `aria-describedby`.
+- [ x] Du har testat både filter och formulär med bara tangentbordet.
+- [ x] Du har gjort minst sex commits.
 
 ## Tips om du fastnar
 

@@ -45,9 +45,11 @@ function visaFel(falt: Falt, meddelande: string): void {
     // TODO
     const felId = `${falt.name}-fel`
     let p = document.getElementById(felId)
+
     if (!p) {
         p = document.createElement('p')
         p.className = 'falt-fel'
+        p.id = felId //Måste vara med annars blir det hittar inte  document.getElementById(felId) nästa gång. Blir dubbla felmeddelanden
         falt.insertAdjacentElement('afterend', p)
     }
     p.textContent = meddelande
@@ -81,8 +83,37 @@ for (const [namn, regel] of Object.entries(regler)) {
 
 // 3. Vid "submit": preventDefault(). Validera hela formuläret med valideraFormular.
 //    - Finns fel: visa dem alla med visaFel, flytta fokus till första felaktiga fältet.
-//    - Annars: skriv "Tack! Vi bekräftar din bokning inom ett dygn." i #bekraftelse och töm formuläret (form.reset()).
-//    Tips: new FormData(form) ger fält av typen string | File. valideraFormular vill ha Record<string, string>,
+//    - Annars: skriv "Tack! Vi bekräftar din bokning inom ett dygn." i #bekraftelse
+// och töm formuläret (form.reset()).
+//    Tips: new FormData(form) ger fält av typen string | File.
+//  valideraFormular vill ha Record<string, string>,
 //    så loopa och ta bara värden där typeof varde === "string".
 //    Använd hittaFalt(namn) för att hämta ett fält med rätt typ.
 // TODO
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    bekraftelse.textContent = '' //töm gamla felmeddelanden
+    // Hämta alla strängvärden från FormData
+    const data: Record<string, string> = {}
+    for (const [nyckel, varde] of new FormData(form).entries()) {
+        if (typeof varde === 'string') {
+            data[nyckel] = varde
+        }
+    }
+
+    const fel = valideraFormular(data, dagensDatum())
+    const felEntries = Object.entries(fel)
+
+    if (felEntries.length > 0) {
+        // Visa alla fel och fokusera på det första felaktiga fältet
+        for (const [namn, meddelande] of felEntries) {
+            visaFel(hittaFalt(namn), meddelande)
+        }
+        hittaFalt(felEntries[0][0]).focus()
+    } else {
+        bekraftelse.textContent =
+            'Tack! Vi bekräftar din bokning inom ett dygn.'
+        form.reset()
+    }
+})
